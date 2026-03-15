@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PancakeLab</title>
+    <link rel="icon" type="image/webp" href="https://picui.ogmua.cn/s1/2026/03/15/69b654f3d1379.webp" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="testnetBanner" class="testnet-banner" style="display:none">⚠️ 测试网模式 (?testnet=1)</div>
+    <header class="topbar">
+      <div class="brand">
+        <img
+          class="brand-logo"
+          src="https://picui.ogmua.cn/s1/2026/03/15/69b654f3d1379.webp"
+          alt="Project Logo"
+        />
+        <span class="brand-name">PancakeLab</span>
+      </div>
+
+      <button id="connectWalletBtn" class="connect-wallet" type="button">
+        连接钱包
+      </button>
+    </header>
+
+    <main class="page">
+      <section class="tabs-main">
+        <button class="tab-main active" data-tab="claim" type="button">Claim Cake</button>
+        <button class="tab-main" data-tab="farm" type="button">Farm / Liquidity</button>
+      </section>
+
+      <section id="claimCakeSection" class="tab-content active">
+        <section class="title-block">
+          <h1>Cake Staking</h1>
+          <p>Stake CAKE to earn tokens.</p>
+        </section>
+
+        <section class="claim-cta">
+          <button id="claimBtn" class="claim-cta-btn" type="button">Claim</button>
+        </section>
+
+        <section class="claim-stats">
+          <div class="stat-card">
+            <small>Total Staked</small>
+            <p>2,847,392 CAKE</p>
+          </div>
+          <div class="stat-card">
+            <small>CAKE Burned</small>
+            <p>1,234,567 CAKE</p>
+          </div>
+          <div class="stat-card">
+            <small>Your Staked</small>
+            <p>196 CAKE</p>
+          </div>
+        </section>
+
+        <section class="controls-grid claim-controls">
+          <div class="control-card">
+            <label>FILTER BY</label>
+            <div class="pill-group">
+              <button class="pill active" type="button">Live</button>
+              <button class="pill" type="button">Finished</button>
+            </div>
+          </div>
+          <div class="control-card">
+            <label>SORT BY</label>
+            <button class="select-btn" type="button">
+              Hot
+              <span>▼</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="pool-list">
+          <article class="pool-item pool-featured">
+            <div class="pool-header">
+              <div class="pair-title">
+                <span class="coin-dot cake"></span>
+                <strong>CAKE</strong>
+              </div>
+              <span class="multiplier">Flexible</span>
+            </div>
+            <div class="pool-data">
+              <div>
+                <small>APR</small>
+                <p>12.45%</p>
+              </div>
+              <div>
+                <small>Earned</small>
+                <p>0 CAKE</p>
+              </div>
+            </div>
+            <div class="pool-actions">
+              <button id="claimBtn" class="action-btn action-primary" type="button">Claim</button>
+              <button class="action-btn" type="button">Stake CAKE</button>
+            </div>
+          </article>
+
+          <article class="pool-item">
+            <div class="pool-header">
+              <div class="pair-title">
+                <span class="coin-dot"></span>
+                <strong>CAKE-BNB LP</strong>
+              </div>
+              <span class="multiplier">0.2%</span>
+            </div>
+            <div class="pool-data">
+              <div>
+                <small>APR</small>
+                <p>38.22%</p>
+              </div>
+              <div>
+                <small>Earned</small>
+                <p>0 CAKE</p>
+              </div>
+            </div>
+            <div class="pool-actions">
+              <button class="action-btn" type="button">Approve</button>
+              <button class="action-btn action-primary" type="button">Stake</button>
+            </div>
+          </article>
+
+          <article class="pool-item">
+            <div class="pool-header">
+              <div class="pair-title">
+                <span class="coin-dot alt"></span>
+                <strong>CAKE-BUSD LP</strong>
+              </div>
+              <span class="multiplier">0.1%</span>
+            </div>
+            <div class="pool-data">
+              <div>
+                <small>APR</small>
+                <p>29.15%</p>
+              </div>
+              <div>
+                <small>Earned</small>
+                <p>0 CAKE</p>
+              </div>
+            </div>
+            <div class="pool-actions">
+              <button class="action-btn" type="button">Approve</button>
+              <button class="action-btn action-primary" type="button">Stake</button>
+            </div>
+          </article>
+        </section>
+      </section>
+
+      <section id="farmSection" class="tab-content">
+      <section class="title-block">
+        <h1>Farms</h1>
+        <p>Stake LP tokens to earn.</p>
+      </section>
+
+      <section class="controls-grid">
+        <div class="control-card">
+          <label>FILTER BY</label>
+          <div class="pill-group">
+            <button class="pill active" type="button">Live</button>
+            <button class="pill" type="button">Finished</button>
+          </div>
+        </div>
+
+        <div class="control-card">
+          <label>Farm Types</label>
+          <div class="switch-row">
+            <button class="pill pill-soft" type="button">Farm Types</button>
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider"></span>
+            </label>
+            <span class="switch-label">Staked only</span>
+          </div>
+        </div>
+
+        <div class="control-card">
+          <label>SORT BY</label>
+          <button class="select-btn" type="button">
+            Hot
+            <span>▼</span>
+          </button>
+        </div>
+
+        <div class="control-card">
+          <label>SEARCH</label>
+          <input class="search-input" type="text" placeholder="Search Farms" />
+        </div>
+      </section>
+
+      <section class="farm-list">
+        <article class="farm-item">
+          <div class="farm-header">
+            <div class="pair-title">
+              <span class="coin-dot"></span>
+              <strong>BNB-USDT LP</strong>
+            </div>
+            <span class="multiplier">0.1%</span>
+          </div>
+          <div class="farm-data">
+            <div>
+              <small>Earned</small>
+              <p>0</p>
+            </div>
+            <div>
+              <small>APR</small>
+              <p>51.71%</p>
+            </div>
+          </div>
+          <div class="farm-actions">
+            <button class="action-btn" type="button">Approve</button>
+            <button class="action-btn action-primary" type="button">Stake</button>
+            <button class="action-btn" type="button">Claim</button>
+          </div>
+        </article>
+
+        <article class="farm-item">
+          <div class="farm-header">
+            <div class="pair-title">
+              <span class="coin-dot alt"></span>
+              <strong>CAKE-BNB LP</strong>
+            </div>
+            <span class="multiplier">0.2%</span>
+          </div>
+          <div class="farm-data">
+            <div>
+              <small>Earned</small>
+              <p>0</p>
+            </div>
+            <div>
+              <small>APR</small>
+              <p>63.22%</p>
+            </div>
+          </div>
+          <div class="farm-actions">
+            <button class="action-btn" type="button">Approve</button>
+            <button class="action-btn action-primary" type="button">Stake</button>
+            <button class="action-btn" type="button">Claim</button>
+          </div>
+        </article>
+      </section>
+      </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.2/dist/ethers.umd.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
